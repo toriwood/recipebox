@@ -1,2 +1,17 @@
-<h1>Recipes#show</h1>
-<p>Find me in app/views/recipes/show.html.erb</p>
+
+	<div class="well col-md-6">
+		<h3><%= recipe.name %></h3>
+		<ul>
+			<% recipe.ingredients.each do |ingredient| %>
+			<li><%= ingredient.name %>: <%= ingredient.quantity %>   
+				<% if user_signed_in? && current_user.id == recipe.user_id %>
+				<%= link_to "Edit Ingredient", edit_ingredient_path(ingredient), class: "btn btn-primary" %>
+				<%= link_to "Delete Ingredient", ingredient, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+			</li>
+				<% end %>
+			<% end %>
+		</ul>
+		<% if user_signed_in? && current_user.id == recipe.user_id %>
+			<%= link_to "Add ingredients", new_ingredient_path(:ingredient => {recipe_id: recipe.id}) %>
+		<% end %>
+	</div>

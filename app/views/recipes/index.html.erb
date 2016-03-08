@@ -7,15 +7,12 @@
 <div class="container">
 <% @recipes.each do |recipe| %>
 		<div class="well col-md-3">
-			<h1><%= recipe.name %></h1>
+			<h3><%= link_to recipe.name, recipe %></h3>
 			<ul>
 				<% recipe.ingredients.each do |ingredient| %>
 				<li><%= ingredient.name %>: <%= ingredient.quantity %></li>
 				<% end %>
 			</ul>
-			<% if user_signed_in? && current_user.id = recipe.user_id %>
-			<%= link_to "Add ingredients", new_ingredient_path %>
-			<% end %>
 		</div>
 <% end %>
 
