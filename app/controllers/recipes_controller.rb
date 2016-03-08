@@ -16,7 +16,7 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.create(params[:id])
+    @recipe = Recipe.create(recipe_params)
     
     if @recipe.save
       flash[:success] = "Recipe added successfully."
@@ -40,7 +40,9 @@ class RecipesController < ApplicationController
     @recipe ||= Recipe.find(params[:id])
   end
 
+  helper_method :recipe
+
   def recipe_params
-    params.require(:recipe).permit(:name)
+    params.require(:recipe).permit(:name, :ingredient_number, :user_id)
   end
 end
