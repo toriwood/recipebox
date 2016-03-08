@@ -13,6 +13,7 @@
 				<li><%= ingredient.name %>: <%= ingredient.quantity %></li>
 				<% end %>
 			</ul>
+			<p>by <%= User.find(recipe.user_id).email %></p>
 		</div>
 <% end %>
 
