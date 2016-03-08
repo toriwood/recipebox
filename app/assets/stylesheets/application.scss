@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
+div.container.login {
+	width: 50%;	
+}
+
+div {
+	font-family: 'Lora', serif;
+}
