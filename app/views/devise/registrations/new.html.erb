@@ -1,8 +1,5 @@
 <h2>Sign up</h2>
 
-  <h3>Already a member? Sign in <%= link_to "here", new_user_session_path %></h3>
-
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
