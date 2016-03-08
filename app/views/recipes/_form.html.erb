@@ -6,8 +6,8 @@
 	</div>
 
 	<div class="form-group">
-		<%= f.label "How many ingredients does this recipe have?" %>
-		<%= f.number_field :ingredient_number, class: "form-control" %>
+		<%= f.label :instructions %>
+		<%= f.text_area :instructions, class: "form-control" %>
 	</div>
 
 	<%= f.hidden_field :user_id, value: current_user.id %>

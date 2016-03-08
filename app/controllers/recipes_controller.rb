@@ -43,6 +43,6 @@ class RecipesController < ApplicationController
   helper_method :recipe
 
   def recipe_params
-    params.require(:recipe).permit(:name, :ingredient_number, :user_id)
+    params.require(:recipe).permit(:name, :instructions, :user_id)
   end
 end
