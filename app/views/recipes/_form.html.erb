@@ -1,0 +1,17 @@
+<%= form_for recipe do %>
+
+	<div class="form-group">
+		<%= f.label :name %>
+		<%= f.text_input :name, autofocus: true, class: "form-control" %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label "How many ingredients does this recipe have?" %>
+		<%= f.integer :ingredient_number, class: "form-control" %>
+	</div>
+
+	<div class="actions">
+	      <%= f.submit "Update", class: "btn btn-primary" %>
+	</div>
+
+	<% end %>
