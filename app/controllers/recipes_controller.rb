@@ -28,9 +28,20 @@ class RecipesController < ApplicationController
   end
 
   def update
+    recipe.update(recipe_params)
+
+    if @recipe.save
+      flash[:success] = "Recipe updated successfully."
+      redirect_to recipes_path
+    else
+      flash[:danger] = "There was a problem updating this recipe."
+      redirect_to edit_recipe_path(recipe)
+    end
   end
 
   def destroy
+    recipe.destroy
+    redirect_to recipes_path
   end
 
 

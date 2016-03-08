@@ -8,10 +8,13 @@
 				<%= link_to "Edit Ingredient", edit_ingredient_path(ingredient), class: "btn btn-primary" %>
 				<%= link_to "Delete Ingredient", ingredient, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
 			</li>
-				<% end %>
 			<% end %>
+			<% end %>
+			<li><%= recipe.instructions %></li>
 		</ul>
 		<% if user_signed_in? && current_user.id == recipe.user_id %>
-			<%= link_to "Add ingredients", new_ingredient_path(:ingredient => {recipe_id: recipe.id}) %>
+			<%= link_to "Add ingredients", new_ingredient_path(:ingredient => {recipe_id: recipe.id}), class: "btn btn-primary" %>
+			<%= link_to "Edit Recipe", edit_recipe_path(recipe), class: "btn btn-primary" %>
+			<%= link_to "Delete Recipe", recipe, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
 		<% end %>
 	</div>
